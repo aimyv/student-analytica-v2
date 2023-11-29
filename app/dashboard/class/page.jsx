@@ -1,3 +1,5 @@
+import BarChart from '../../ui/BarChart'
+
 export const metadata = {
     title: 'Class',
     description: 'View exam results for each class.',
@@ -6,7 +8,7 @@ export const metadata = {
 export default function Page() {
     return (
         <main>
-            <h1>Class</h1>
+            <BarChart subject='Maths' />
         </main>
     )
 };

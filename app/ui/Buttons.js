@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const DefaultButton = styled.button`
-background-color: #3b82f6;
-border-radius: 10px;
+background-color: #2563eb;
+border-radius: 5px;
 padding: 5px 10px;
 color: white;
 &:hover {

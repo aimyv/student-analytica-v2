@@ -14,3 +14,11 @@ h1 {
   font-size: 150%;
   text-align: center;
 }
+
+h2 {
+  font-size: 125%;
+}
+
+h1, h2, h3 {
+  color: white;
+}

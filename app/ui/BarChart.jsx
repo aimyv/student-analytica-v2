@@ -1,25 +1,25 @@
 'use client'
 
+// chart.js imports
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
+// tanstack query imports
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import axios from 'axios';
 
 const BarChart = ({ subject }) => {
+    const queryClient = useQueryClient();
     const [names, setNames] = useState([]);
     const [scores, setScores] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://127.0.0.1:5000/results/${subject}/average`).then((response) => response.json())
-        .then((actualData) => {
-            // reads and sets student names
-            let n = actualData[0]
-            setNames(n)
-            // reads and sets average scores
-            let s = actualData[1]
-            setScores(s)
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['results'],
+        queryFn: async () => {
+            const r = await axios.get(`http://127.0.0.1:5000/results/${subject}/average`)
+            setNames(r.data[0])
+            setScores(r.data[1])
+            return r.data
+        }
     })
 
     const state = {
@@ -27,12 +27,12 @@ const BarChart = ({ subject }) => {
         datasets: [{
             label: `${subject} Average`,
             data: scores,
-            backgroundColor: [
-                'rgba(85, 205, 76, 0.3)'
-            ],
-            borderColor: [
-                'rgb(85, 205, 76)'
-            ],
+            // backgroundColor: [
+            //     'rgba(85, 205, 76, 0.3)'
+            // ],
+            // borderColor: [
+            //     'rgb(85, 205, 76)'
+            // ],
             borderWidth: 1,
         }]
     }
@@ -47,7 +47,7 @@ const BarChart = ({ subject }) => {
     }
 
     return (
-        <div className='border2' style={{width: '100%', margin: 'auto'}}>
+        <div className='border-[0.5px] pt-5 pb-[30px] px-[30px] rounded-[10px] border-solid border-[white] bg-[rgba(255,255,255,0.05)]' style={{width: '100%', margin: 'auto'}}>
             <h2>{subject}</h2>
             <br/>
             <Bar
