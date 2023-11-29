@@ -1,5 +1,5 @@
-import ResultsForm from '../../ui/ResultsForm';
-import ResultsTable from '../../ui/ResultsTable';
+import ResultsForm from '../../ui/results/ResultsForm';
+import ResultsTable from '../../ui/results/ResultsTable';
 
 export const metadata = {
     title: 'Results',

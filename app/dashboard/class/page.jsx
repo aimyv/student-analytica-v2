@@ -1,4 +1,5 @@
-import BarChart from '../../ui/BarChart'
+// import BarChart from '../../ui/class/BarChart'
+import SelectSubject from '../../ui/class/SelectSubject'
 
 export const metadata = {
     title: 'Class',
@@ -8,7 +9,7 @@ export const metadata = {
 export default function Page() {
     return (
         <main>
-            <BarChart subject='Maths' />
+            <SelectSubject />
         </main>
     )
 };

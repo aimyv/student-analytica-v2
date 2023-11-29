@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from 'axios'
-import { DefaultButton } from './Buttons'
-import { Input, Select, TextArea } from './Inputs'
+import { DefaultButton } from '../Buttons'
+import { Input, Select, TextArea } from '../Inputs'
 
 const ResultForm = () => {
 
