@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Select from 'react-select'
 import BarChart from './BarChart'
 
-export default function SelectedSubject() {
+export default function SelectSubject() {
 
     // single-select
     const options = [

@@ -1,4 +1,3 @@
-// import BarChart from '../../ui/class/BarChart'
 import SelectSubject from '../../ui/class/SelectSubject'
 
 export const metadata = {

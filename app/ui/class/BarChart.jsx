@@ -27,12 +27,6 @@ const BarChart = ({ subject }) => {
         datasets: [{
             label: `${subject} Average`,
             data: scores,
-            // backgroundColor: [
-            //     'rgba(85, 205, 76, 0.3)'
-            // ],
-            // borderColor: [
-            //     'rgb(85, 205, 76)'
-            // ],
             borderWidth: 1,
         }]
     }
@@ -47,28 +41,14 @@ const BarChart = ({ subject }) => {
     }
 
     return (
-        <div className='border-[0.5px] pt-5 pb-[30px] px-[30px] rounded-[10px] border-solid border-[white] bg-[rgba(255,255,255,0.05)]' style={{width: '100%', margin: 'auto'}}>
+        <div className='border-[0.5px] pt-5 pb-[30px] px-[30px] rounded-[10px] border-solid border-[white] bg-[white]' style={{width: '100%', margin: 'auto'}}>
             <h2>{subject}</h2>
             <br/>
             <Bar
                 data={state}
                 options={{
                     scales: {
-                        x: {
-                            ticks: {
-                            color: 'white'
-                            },
-                            grid: {
-                                color: 'rgba(255,255,255,0.1)'
-                            }
-                        },
                         y: {
-                            ticks: {
-                            color: 'white'
-                            },
-                            grid: {
-                                color: 'rgba(255,255,255,0.1)'
-                            },
                             beginAtZero: true
                         }
                     }

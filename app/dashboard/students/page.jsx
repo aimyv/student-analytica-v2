@@ -1,3 +1,5 @@
+import SelectStudent from '../../ui/students/SelectStudent'
+
 export const metadata = {
     title: 'Students',
     description: 'View exam results for each student.',
@@ -6,7 +8,7 @@ export const metadata = {
 export default function Page() {
     return (
         <main>
-            <h1>Students</h1>
+            <SelectStudent />
         </main>
     )
 };
