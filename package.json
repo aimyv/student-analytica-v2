@@ -16,9 +16,11 @@
     "@tanstack/react-query": "^5.8.9",
     "@tanstack/react-table": "^8.10.7",
     "axios": "^1.6.2",
+    "chart.js": "^4.4.0",
     "clsx": "^2.0.0",
     "next": "14.0.3",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-feather": "^2.0.10",
     "styled-components": "^6.1.1"

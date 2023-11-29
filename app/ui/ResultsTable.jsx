@@ -12,10 +12,8 @@ import Paper from '@mui/material/Paper';
 // tanstack query imports
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from 'axios';
-import { useState } from 'react';
 // icon
 import { Trash2 } from 'react-feather'
-import { Tab } from '@mui/material';
 
 function createData(student_name, subject, score, id) {
     return { student_name, subject, score, id };
@@ -55,9 +53,9 @@ export default function DenseTable() {
                 </TableCell>
                 <TableCell align="right">{item.subject}</TableCell>
                 <TableCell align="right">{item.score}</TableCell>
-                <TableCell align="right">
+                <TableCell>
                     <Trash2 
-                        className='text-[#55cd4c] cursor-pointer w-4 hover:text-[red] ml-auto mr-0 my-auto'
+                        className='text-blue-600 cursor-pointer w-4 hover:text-[red] ml-auto mr-0 my-auto'
                         onClick={async() => {
                             // deletes result
                             await axios.delete(`http://127.0.0.1:5000/results/${item.id}`)
