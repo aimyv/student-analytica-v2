@@ -1,4 +1,4 @@
-import SelectStudent from '../../ui/students/SelectStudent'
+import SelectStudent from '../ui/students/SelectStudent'
 
 export const metadata = {
     title: 'Students',

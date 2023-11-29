@@ -14,22 +14,22 @@ import clsx from 'clsx';
 const links = [
     { 
         name: 'Home', 
-        href: '/dashboard', 
+        href: '/', 
         icon: HomeIcon 
     },
     {
         name: 'Results',
-        href: '/dashboard/results',
+        href: '/results',
         icon: TableCellsIcon,
     },
     { 
         name: 'Class', 
-        href: '/dashboard/class', 
+        href: '/class', 
         icon: UserGroupIcon 
     },
     { 
         name: 'Students', 
-        href: '/dashboard/students', 
+        href: '/students', 
         icon: AcademicCapIcon
     },
     ];
