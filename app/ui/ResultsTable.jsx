@@ -41,7 +41,7 @@ export default function DenseTable() {
             </TableRow>
             </TableHead>
             <TableBody>
-            {rows.map((item, index) => (
+            {rows?.map((item, index) => (
                 <TableRow
                 key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

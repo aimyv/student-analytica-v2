@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import TanStackProvider from '@/app/ui/providers/TanStackProvider'
+import TanStackProvider from './ui/providers/TanStackProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
