@@ -50,7 +50,7 @@ const RadarChart = ({ student_name }) => {
     })
 
     const { isLoading, error, data } = useQuery({
-        queryKey: ['students'],
+        queryKey: ['students', student_name],
         queryFn: async () => {
             const r = await axios.get(`http://127.0.0.1:5000/students/${student_name}/results`)
             // filter all maths results

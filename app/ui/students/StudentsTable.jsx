@@ -20,7 +20,7 @@ function createData(subject, score, feedback) {
 export default function DenseTable({ student_name }) {
     const queryClient = useQueryClient();
     const { isLoading, error, data } = useQuery({
-        queryKey: ['studentsTable'],
+        queryKey: ['studentsTable', student_name],
         queryFn: async () => {
             const r = await axios.get(`http://127.0.0.1:5000/students/${student_name}/results`)
             console.log(r.data)
