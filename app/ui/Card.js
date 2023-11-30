@@ -45,10 +45,10 @@ export function Card({ title, value, type }) {
         <div className="grid rounded-xl bg-gray-50 p-2 shadow-sm">
         <div className="place-self-center flex p-4">
             {Icon ? <Icon className="h-7 w-7 text-gray-700" /> : null}
-            <h3 className="ml-2 text-xl font-medium">{title}</h3>
+            <h3 className="ml-2 text-m font-medium">{title}</h3>
         </div>
         <p
-            className='truncate rounded-xl px-4 py-4 text-center'
+            className='truncate rounded-xl p-4 text-center'
         >
             {value}
         </p>
