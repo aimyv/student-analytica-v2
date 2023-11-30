@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 // tanstack query imports
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import axios from 'axios';
 // icon
 import { Trash2 } from 'react-feather'
@@ -29,6 +29,22 @@ export default function DenseTable() {
         }
     })
     const rows = data?.map(d => createData(d["student_name"], d["subject"], d["score"], d["id"]))
+
+    async function deleteResult(id) {
+        try {
+            await axios.delete(`http://127.0.0.1:5000/results/${id}`)
+        } catch (e) {
+            console.log(e);
+            throw e;
+        }
+    }
+
+    const { mutate } = useMutation({
+        mutationFn: deleteResult,
+        onSuccess: () => {
+            queryClient.invalidateQueries("results");
+        },
+    });
     
     return (
         <>
@@ -56,10 +72,7 @@ export default function DenseTable() {
                 <TableCell>
                     <Trash2 
                         className='text-blue-600 cursor-pointer w-4 hover:text-[red] ml-auto mr-0 my-auto'
-                        onClick={async() => {
-                            // deletes result
-                            await axios.delete(`http://127.0.0.1:5000/results/${item.id}`)
-                            }}
+                        onClick={(id) => mutate(item.id)}
                     />
                 </TableCell>
                 </TableRow>
