@@ -11,9 +11,6 @@ export const metadata = {
     default: 'Student Analytica',
   },
   description: 'A Student Analytics Dashboard.',
-  icons: {
-    icon: '/logo.png',
-  },
 };
 
 export default function RootLayout({
@@ -22,6 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <TanStackProvider>
+        <head>
+          <link rel='icon' href='/favicon.ico'/>
+        </head>
         <body className={inter.className}>
           <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
             <div className="w-full flex-none md:w-64">

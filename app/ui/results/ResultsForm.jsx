@@ -38,7 +38,7 @@ const ResultForm = () => {
 
     return (
         <div>
-            <div style={{maxWidth: '70%', margin: 'auto'}}>
+            <div style={{maxWidth: '80%', margin: 'auto'}}>
                 <form onSubmit={ (e) => mutate(result) } className='bg-[white]' style={{border: 'solid 0.5px black', borderRadius: '5px', padding: '1em'}}>
 
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>

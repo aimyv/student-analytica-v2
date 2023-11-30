@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
 import BarChart from './BarChart'
+import ClassTable from './ClassTable'
 
 export default function SelectSubject() {
 
@@ -23,9 +24,15 @@ export default function SelectSubject() {
     
     return (
         <div>
-            <Select options={options} onChange={handleChange} autoFocus={true} />
+            <Select className='w-4/5 m-auto' options={options} onChange={handleChange} autoFocus={true} />
             <br />
-            {selected && <BarChart subject={selected} />}
+            {selected && 
+                (<div>
+                    <BarChart subject={selected} />
+                    <br/>
+                    <ClassTable subject={selected} />
+                </div>)
+            }
         </div>
     );
 }

@@ -136,7 +136,7 @@ const RadarChart = ({ student_name }) => {
     }
     
     return (
-        <div className='border-[0.5px] pt-5 pb-[30px] px-[30px] rounded-[10px] border-solid border-[white] bg-[white]' style={{width: '100%', margin: 'auto'}}>
+        <div className='w-4/5 m-auto border-[0.5px] pt-5 pb-[30px] px-[30px] rounded-[10px] border-solid border-[white] bg-[white]'>
             <h2>{student_name}</h2>
             <br/>
             <Radar 

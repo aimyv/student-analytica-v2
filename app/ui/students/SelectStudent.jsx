@@ -6,6 +6,7 @@ import RadarChart from './RadarChart'
 // tanstack query imports
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from 'axios';
+import StudentsTable from './StudentsTable'
 
 export default function SelectStudent() {
     const queryClient = useQueryClient()
@@ -31,9 +32,15 @@ export default function SelectStudent() {
     
     return (
         <div>
-            <Select options={options} onChange={handleChange} autoFocus={true} />
+            <Select className='w-4/5 m-auto' options={options} onChange={handleChange} autoFocus={true} />
             <br />
-            {selected && <RadarChart student_name={selected} />}
+            {selected && (
+                <div>
+                    <RadarChart student_name={selected} />
+                    <br/>
+                    <StudentsTable student_name={selected} />
+                </div>
+            )}
         </div>
     );
 }

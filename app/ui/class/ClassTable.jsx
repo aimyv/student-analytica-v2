@@ -12,34 +12,36 @@ import Paper from '@mui/material/Paper';
 // tanstack query imports
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from 'axios';
-// icon
-import { Trash2 } from 'react-feather'
 
-function createData(student_name, subject, score, id) {
-    return { student_name, subject, score, id };
+function createData(student_name, score, feedback) {
+    return { student_name, score, feedback };
 }
 
-export default function DenseTable() {
+export default function DenseTable({ subject }) {
     const queryClient = useQueryClient();
     const { isLoading, error, data } = useQuery({
-        queryKey: ['results'],
+        queryKey: ['classTable'],
         queryFn: async () => {
-            const r = await axios.get('http://127.0.0.1:5000/results')
+            const r = await axios.get(`http://127.0.0.1:5000/results/${subject}`)
+            // console.log(r.data)
             return r.data
         }
     })
-    const rows = data?.map(d => createData(d["student_name"], d["subject"], d["score"], d["id"]))
+    const rows = data?.map(d => createData(d["student_name"], d["score"], d["feedback"]))
+
+    if (isLoading) return <p className='text-[white]'>Loading...</p>
+
+    if (error) return <p className='text-[white]'>{`An error has occurred: ${error.message}`}</p>
     
     return (
         <>
-        <TableContainer component={Paper} style={{width: '80%', margin: 'auto'}}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableContainer className='w-4/5 m-auto' component={Paper}>
+        <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
             <TableHead>
             <TableRow>
                 <TableCell>Student</TableCell>
-                <TableCell align="right">Subject</TableCell>
-                <TableCell align="right">Score (%)</TableCell>
-                <TableCell></TableCell>
+                <TableCell>Score (%)</TableCell>
+                <TableCell>Feedback</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -51,17 +53,8 @@ export default function DenseTable() {
                 <TableCell component="th" scope="row">
                     {item.student_name}
                 </TableCell>
-                <TableCell align="right">{item.subject}</TableCell>
-                <TableCell align="right">{item.score}</TableCell>
-                <TableCell>
-                    <Trash2 
-                        className='text-blue-600 cursor-pointer w-4 hover:text-[red] ml-auto mr-0 my-auto'
-                        onClick={async() => {
-                            // deletes result
-                            await axios.delete(`http://127.0.0.1:5000/results/${item.id}`)
-                            }}
-                    />
-                </TableCell>
+                <TableCell>{item.score}</TableCell>
+                <TableCell>{item.feedback}</TableCell>
                 </TableRow>
             ))}
             </TableBody>
