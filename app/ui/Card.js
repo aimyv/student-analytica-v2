@@ -42,9 +42,9 @@ export function Card({ title, value, type }) {
     const Icon = iconMap[type];
 
     return (
-        <div className="grid rounded-xl bg-gray-50 p-2 shadow-sm">
-        <div className="place-self-center flex p-4">
-            {Icon ? <Icon className="h-7 w-7 text-gray-700" /> : null}
+        <div className="grid rounded-l bg-gray-50 p-2 shadow-sm hover:bg-sky-100 hover:text-blue-600">
+        <div className="place-self-center flex items-center p-4">
+            {Icon ? <Icon className="h-7 w-7" /> : null}
             <h3 className="ml-2 text-m font-medium">{title}</h3>
         </div>
         <p

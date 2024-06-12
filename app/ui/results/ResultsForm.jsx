@@ -41,8 +41,7 @@ const ResultForm = () => {
             <div style={{maxWidth: '80%', margin: 'auto'}}>
                 <form onSubmit={ (e) => mutate(result) } className='bg-[white]' style={{border: 'solid 0.5px black', borderRadius: '5px', padding: '1em'}}>
 
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <div>
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '10px', justifyContent: 'space-between'}}>
                             <Input 
                                 type='text' 
                                 required 
@@ -51,9 +50,6 @@ const ResultForm = () => {
                                 value={result.student_name}
                                 onChange={handleInputChange} 
                             />
-                        </div>
-
-                        <div>
                             <Select
                             required 
                             name="subject" 
@@ -65,9 +61,6 @@ const ResultForm = () => {
                                 <option value="Art">Art</option>
                                 <option value="History">History</option>
                             </Select>
-                        </div>
-
-                        <div>
                             <Input
                             type='number' 
                             required 
@@ -76,11 +69,8 @@ const ResultForm = () => {
                             value={result.score}
                             onChange={handleInputChange}
                             />
-                        </div>
                     </div>
                     
-                    <br />
-
                     <TextArea
                     required 
                     maxLength='300' 
@@ -90,9 +80,8 @@ const ResultForm = () => {
                     onChange={handleInputChange}
                     ></TextArea>
                     
-                    <br/>
-                    <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <DefaultButton type='submit' style={{margin: '10px auto 0 auto'}}>
+                    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+                        <DefaultButton type='submit'>
                             Submit
                         </DefaultButton>
                     </div>
